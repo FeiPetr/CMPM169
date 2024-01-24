@@ -1,12 +1,3 @@
-// sketch.js - purpose and description here
-// Author: Sofia Petrova
-// Date: 1/20/24
-
-// Here is how you might set up an OOP p5.js project
-// Note that p5.js looks for a file called sketch.js
-
-// Constants - User-servicable parts
-// In a longer project I like to put these in a separate file
 // P_3_2_1_01
 //
 // Generative Gestaltung – Creative Coding im Web
@@ -57,9 +48,28 @@ function setup() {
 }
 
 function draw() {
+  
   if (!font) return;
+    background(255);
 
-  background(255);
+    stepX = mouseX + 2;
+  stepY = mouseY + 2;
+
+  for (var gridY = 0; gridY < height; gridY += stepY) {
+    for (var gridX = 0; gridX < width; gridX += stepX) {
+      //fill(gridX, height - gridY, 100);
+      //rect(gridX, gridY, stepX, stepY);
+      fill(gridY, height - gridX, 100);
+      rect(random()*100, random()*100, stepX, stepY);
+
+    }
+  }
+
+  
+
+  /*fill(200, 0, 100);
+  rect(0, 0, 10000, 10000);*/
+
   // margin border
   translate(20, 220);
 
@@ -69,28 +79,26 @@ function draw() {
     // convert it to a g.Path object
     var path = new g.Path(fontPath.commands);
     // resample it with equidistant points
-    path = g.resampleByLength(path, 11);
-    // path = g.resampleByAmount(path, 500);
+    path = g.resampleByLength(path, 110);
+    path = g.resampleByAmount(path, 999);
 
     // lines
-    stroke(181, 157, 0);
-    strokeWeight(1.0);
+    stroke(random()*500, random()*500, random()*300);
+    strokeWeight(2.0);
     var l = 5;
     for (var i = 0; i < path.commands.length; i++) {
       var pnt = path.commands[i];
-      line(pnt.x - l, pnt.y - l, pnt.x + l, pnt.y + l);
+      line(pnt.x, pnt.y, pnt.x, pnt.y);
+      //console.log(pnt.x);
     }
 
     // dots
-    fill(0);
+    fill(99);
     noStroke();
     var diameter = 7;
     for (var i = 0; i < path.commands.length; i++) {
       var pnt = path.commands[i];
       // on every 2nd point
-      if (i % 2 == 0) {
-        ellipse(pnt.x, pnt.y, diameter, diameter);
-      }
     }
   }
 
