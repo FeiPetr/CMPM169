@@ -34,7 +34,7 @@ var textTyped = 'Type ...!';
 var font;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(canvasContainer.width(), canvasContainer.height());
   noLoop();
 
   opentype.load('data/FreeSans.otf', function(err, f) {
