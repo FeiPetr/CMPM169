@@ -57,8 +57,6 @@ function draw() {
 
   for (var gridY = 0; gridY < height; gridY += stepY) {
     for (var gridX = 0; gridX < width; gridX += stepX) {
-      //fill(gridX, height - gridY, 100);
-      //rect(gridX, gridY, stepX, stepY);
       fill(gridY, height - gridX, 100);
       rect(random()*100, random()*100, stepX, stepY);
 
