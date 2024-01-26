@@ -33,7 +33,10 @@ var textTyped = 'Type ...!';
 
 var font;
 
+let canvasContainer;
+
 function setup() {
+  canvasContainer = $("#canvas-container");
   createCanvas(canvasContainer.width(), canvasContainer.height());
   noLoop();
 
