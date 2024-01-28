@@ -1,9 +1,9 @@
 let hearts = []; //array of objects
-let song;
+//let song;
 
 function preload()
 {
-  song = loadSound('spooky.mp3');
+  //song = loadSound('spooky.mp3');
 }
 
 function setup() {
@@ -14,7 +14,7 @@ function setup() {
 
 function draw() {
   background(0);
-  song.play();
+  //song.play();
 
   // Generate a new heart every 30 frames
   if (frameCount % 30 === 0) {
