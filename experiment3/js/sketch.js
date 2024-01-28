@@ -1,67 +1,70 @@
-// sketch.js - purpose and description here
-// Author: Your Name
-// Date:
+let hearts = []; //array of objects
+let song;
 
-// Here is how you might set up an OOP p5.js project
-// Note that p5.js looks for a file called sketch.js
-
-// Constants - User-servicable parts
-// In a longer project I like to put these in a separate file
-const VALUE1 = 1;
-const VALUE2 = 2;
-
-// Globals
-let myInstance;
-let canvasContainer;
-
-class MyClass {
-    constructor(param1, param2) {
-        this.property1 = param1;
-        this.property2 = param2;
-    }
-
-    myMethod() {
-        // code to run when method is called
-    }
+function preload()
+{
+  song = loadSound('spooky.mp3');
 }
 
-// setup() function is called once when the program starts
 function setup() {
-    // place our canvas, making it fit our container
-    canvasContainer = $("#canvas-container");
-    let canvas = createCanvas(canvasContainer.width(), canvasContainer.height());
-    canvas.parent("canvas-container");
-    // resize canvas is the page is resized
-    $(window).resize(function() {
-        console.log("Resizing...");
-        resizeCanvas(canvasContainer.width(), canvasContainer.height());
-    });
-    // create an instance of the class
-    myInstance = new MyClass(VALUE1, VALUE2);
+  createCanvas(400, 400);
+  //song = loadSound('spooky.mp3');
 
-    var centerHorz = windowWidth / 2;
-    var centerVert = windowHeight / 2;
 }
 
-// draw() function is called repeatedly, it's the main animation loop
 function draw() {
-    background(220);    
-    // call a method on the instance
-    myInstance.myMethod();
+  background(0);
+  song.play();
 
-    // Put drawings here
-    var centerHorz = canvasContainer.width() / 2 - 125;
-    var centerVert = canvasContainer.height() / 2 - 125;
-    fill(234, 31, 81);
+  // Generate a new heart every 30 frames
+  if (frameCount % 30 === 0) {
+    let newHeart = new Heart(random(width), random(height), random(30, 80));
+    hearts.push(newHeart);
+  }
+
+  // Display and update all hearts
+  for (let i = hearts.length - 1; i >= 0; i--) {
+    hearts[i].update();
+    hearts[i].display();
+    if (hearts[i].isOffscreen()) {
+      hearts.splice(i, 1);
+    }
+  }
+}
+
+class Heart {
+  constructor(x, y, size) {
+    this.x = x;
+    this.y = y;
+    this.size = size;
+    this.color = color(random(255), random(255), random(255));
+  }
+
+  update() {
+    // Move the heart upwards
+    this.y -= 2;
+  }
+
+  display() {
+    fill(this.color);
     noStroke();
-    rect(centerHorz, centerVert, 250, 250);
-    fill(255);
-    textStyle(BOLD);
-    textSize(140);
-    text("p5*", centerHorz + 10, centerVert + 200);
+    ellipse(this.x, this.y, this.size, this.size);
+    triangle(this.x+(this.size*0.40),this.y-(this.size*0.4),
+             this.x+(this.size*0.1), this.y-this.size,
+             this.x,this.y-(this.size*0.4));
+    triangle(this.x-(this.size*0.40),this.y-(this.size*0.4),
+             this.x-(this.size*0.1), this.y-this.size,
+             this.x, this.y-(this.size*0.4));
+    fill(random()*1550);
+        ellipse(this.x+this.size/4, this.y, this.size/4, this.size/4);
+        ellipse(this.x-this.size/4, this.y, this.size/4, this.size/4);
+
+
+
+  }
+
+  isOffscreen() {
+    return this.y + this.size / 2 < 0;
+  }
 }
 
-// mousePressed() function is called once after every time a mouse button is pressed
-function mousePressed() {
-    // code to run when mouse is pressed
-}
