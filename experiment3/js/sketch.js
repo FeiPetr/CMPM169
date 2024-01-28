@@ -3,12 +3,12 @@ let hearts = []; //array of objects
 
 function preload()
 {
-  //song = loadSound('spooky.mp3');
+  song = loadSound('spooky.mp3');
 }
 
 function setup() {
   createCanvas(400, 400);
-  //song = loadSound('spooky.mp3');
+  song = loadSound('spooky.mp3');
 
 }
 
