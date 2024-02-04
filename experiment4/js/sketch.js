@@ -9,7 +9,7 @@
 // In a longer project I like to put these in a separate file
 let song;
 let img;
-let creepyimg;
+let soundPlayed = false;
 
 var slider;
 var pixelSizeSlide;
@@ -110,7 +110,6 @@ function getAverageColor(x, y, pixelSize) {
 }
 
 function draw() {
-  song.play();
 
   song.setVolume(slider.value());
   pixelSizeSlide = slider.value()*20; //update pixel size
@@ -139,3 +138,11 @@ function draw() {
 
 }
 
+function mousePressed() {
+    // Check if the sound is not already playing
+    if (!soundPlayed) {
+      song.play(); // Play the sound
+      soundPlayed = true; // Set the flag to true so that the sound doesn't play again
+    }
+  }
+  
