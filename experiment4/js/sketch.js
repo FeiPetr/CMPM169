@@ -46,7 +46,7 @@ function setup() {
   pixelate(pixelSizeSlide); // Adjust the pixel size as needed
   song.setVolume(1);
   slider = createSlider(0.1, 1, 0.1, 0.1);
-    song.play();
+  song.play();
 
 
 
@@ -110,7 +110,8 @@ function getAverageColor(x, y, pixelSize) {
 }
 
 function draw() {
-  
+  song.play();
+
   song.setVolume(slider.value());
   pixelSizeSlide = slider.value()*20; //update pixel size
   if (oldSlider != pixelSizeSlide && addChange < 80)
