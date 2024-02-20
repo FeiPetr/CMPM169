@@ -3,7 +3,7 @@ let hearts = []; //array of objects
 
 function preload()
 {
-  song = loadSound('spooky.mp3');
+  song = loadSound('jsspooky.mp3');
 }
 
 function setup() {

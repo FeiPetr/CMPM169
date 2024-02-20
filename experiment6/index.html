@@ -2,7 +2,33 @@
 <html>
 <head>
 	<!-- This title is used for tabs and bookmarks -->
-	<title>Experiment X - Subject/Topic</title>
+	<title>Experiment 6: Grammars & Text Art
+	</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.sound.min.js"></script>
+
+    <!-- Generative Design Dependencies here -->
+    <!-- GG Bundled -->
+    <script src="https://cdn.jsdelivr.net/gh/generative-design/Code-Package-p5.js@master/libraries/gg-dep-bundle/gg-dep-bundle.js"></script>
+    <!-- Opentype -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/opentype.js/0.7.3/opentype.min.js"></script>
+    <!-- Rita -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rita/1.3.11/rita-small.min.js"></script>
+    <!-- Chroma -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.3.6/chroma.min.js"></script>
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+
+    <!-- sketch additions -->
+
+	<script src="https://cdn.rawgit.com/v21/tracery/master/tracery.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
 
 	<!-- Use UTF character set, a good idea with any webpage -->
 	<meta charset="UTF-8" />
@@ -28,32 +54,50 @@
 	<!-- Style this page by changing the CSS in ../css/site.css or css/experiment.css -->
 	<main id="content">
 		<section>
-			<h1>Experiment X - Subject/Topic</h1>
+			<h1>Experiment 2: Vector Art, Animation & Interactivity
+			</h1>
 			<div class="minor-section">
 				<h2>Imitate</h2>
-				<p>To develop artistic creativity in coding, it can be helpful to start by studying and learning from existing examples. This might involve reviewing code written by others, analyzing successful techniques, or even copying and modifying code to better understand how it works. By imitating and learning from existing techniques and strategies, we can gain a better understanding of what has been done before and what is possible, and identify opportunities for improvement and innovation.</p>
-				<p>What code did you start with? (You don't need to provide the code itself, but where did you start?) Document this step briefly.</p>
+				<p>
+					I have very little experience with JavaScript beyond Phaser 3, so this is all very new to me. I looked through some existing code to try to understand them.
+				</p>
+				<p>
+					Starting off, I was especially intrigued by various text based interactive projects. I copied the code from P_3_2_1_01 by generative-design and began to modify the code to get a better understanding of how text based interactive projects worked. I began to modify the original code and experiment with it to create my own interactive text project.
+				</p>
+				<p>
+					On top of modifying the look of the text, I decided to try and add additional features, such as the ability to hit return and write more on a new line. However, I spent a lot of time on this with very little progress, so I decided to move onto something new.
+				</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Integrate</h2>
-				<p>After learning from existing techniques and strategies, we can build upon that foundation by combining elements from different sources. This might involve combining elements from different programming languages, using libraries or frameworks in new ways, or bringing together techniques from different fields or disciplines. By integrating and combining elements from different sources, we can create something new and unique.</p>
-				<p>How did you extend the code or combine with another technique to make something new? Document this step.</p>
+				<p>I began looking at color generative projects. In particular, I was intrigued by P_1_1_1_01 by generative-design, where a color gradient would expand according to mouse movement.
+				</p>
+				<p>I decided to experiment with an interactive color background combined with my text experiment. After integrating into my project, I now have a gradient background that updates with every letter typed rather than automatically moving with the mouse, with a stroke in between colors.
+				</p>
+				<p>
+					I experimented with the color gradient with the goal of being able to manipulate it creatively. I ended up modifying the step function in a way that made an interesting combination of refresh rates where parts of previous writing would be kept depending on where the mouse was.				</p>
+
 			</div>
 
 			<div class="minor-section">
 				<h2>Innovate</h2>
-				<p>Finally, we can introduce new or original ideas to our coding process by thinking creatively and pushing the boundaries. This might involve developing entirely new techniques or approaches, or using existing techniques in new and creative ways. By innovating and introducing new ideas, we can create art that is truly groundbreaking.</p>
-				<p>How did you use the code as a jumping off point to create something truly unique and novel? Document this step thoroughly.</p>
+				<p>I began to utilize random color generation for both the background and the letters being typed. The colors update at each keystroke. I created a sort of glitchy background in a new project using the knowledge of background color creation used in the previous project.
+				</p>
+				<p>After this, I incorporated typing back into it by stretching all the letters to create a more fitting alien-esque font.
+					On top of this, I added random color generation to the letters so that the letters changed color with every keystroke. I decided to conclude my project here, having run out of time and creative ways to further it.
+
+				</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Reflection</h2>
 				<p>Each person that worked on the code should reflect on the process, the difficulties, and the successes of the experiment. Here's where you can put your reflections.</p>
 				<ul>
-					<li>What part of the project you contributed</li>
-					<li>A reflection on your work and the work of the team</li>
-					<li>Brief highs and lows</li>
+					<li>I had a lot of difficulty getting started, being completely new to p5js and generally struggling to learn new programming languages. It helped to copy other projects and modify them to see what made them work, and while I don’t feel super confident making a refined project from scratch, I have a much better understanding of how to create projects in it than I did when I began. The biggest thing I learned was how text can be portrayed graphically. I think trying to make a text based project was a little too ambitious, but I was really determined to make one and spent too much time trying to code specific things when I should have cast a broader net in experimentation and started from the basics. 
+					</li>
+					<li>My biggest struggle was getting the project playable on web. I made a lot of thoughtless, time consuming mistakes, such as accidentally overwriting the index.html, making the canvas size too big to read the text, and putting the experiment in the wrong folder. My experiment is still pushing all the text to the side, but the text is now legible.
+					</li>
 				</ul>
 			</div>
 

@@ -1,67 +1,110 @@
-// sketch.js - purpose and description here
-// Author: Your Name
-// Date:
+// A BOWL of MAC and CHEESE
+// NAME's OBJECT
+// NUMBER of OBJECTs
+// NOUN of NOUN
+// the last NOUN
+var font;
+var start1 = 30;
+var start2 = 120;
+var output;
 
-// Here is how you might set up an OOP p5.js project
-// Note that p5.js looks for a file called sketch.js
-
-// Constants - User-servicable parts
-// In a longer project I like to put these in a separate file
-const VALUE1 = 1;
-const VALUE2 = 2;
-
-// Globals
-let myInstance;
-let canvasContainer;
-
-class MyClass {
-    constructor(param1, param2) {
-        this.property1 = param1;
-        this.property2 = param2;
+function setup() { 
+  createCanvas(500, 500);
+  
+    opentype.load('data/FreeSans.otf', function(err, f) {
+    if (err) {
+      console.log(err);
+    } else {
+      font = f;
+      loop();
     }
+  });
 
-    myMethod() {
-        // code to run when method is called
-    }
+
+
+  background(255);
+  textAlign(LEFT, TOP);
+  textSize(30);
+  text("Fantasy Book Name Generator",
+       20, 20, width-40, height-40);
+} 
+
+function draw() { 
+  if (!font) return;
+  let angle = PI / 6; // Rotate text by 30 degrees (in radians)
+  rotate(angle);
+  background(255);
+  textFont(font, 50);
+  let shadowColor = color(random()*100, random()*100, random()*100, 255); // transparency
+  let offsetX = 2;
+  let offsetY = 2;
+  let blurRadius = 5;
+  textShadow(shadowColor, offsetX-90, offsetY-90, blurRadius);
+
+  text(output, start1, start1, width-40, height-40);
+  text(output, start2, start2, width-40, height-40);
+  start1++;
+  start2++;
+
+
+
+
 }
 
-// setup() function is called once when the program starts
-function setup() {
-    // place our canvas, making it fit our container
-    canvasContainer = $("#canvas-container");
-    let canvas = createCanvas(canvasContainer.width(), canvasContainer.height());
-    canvas.parent("canvas-container");
-    // resize canvas is the page is resized
-    $(window).resize(function() {
-        console.log("Resizing...");
-        resizeCanvas(canvasContainer.width(), canvasContainer.height());
-    });
-    // create an instance of the class
-    myInstance = new MyClass(VALUE1, VALUE2);
-
-    var centerHorz = windowWidth / 2;
-    var centerVert = windowHeight / 2;
-}
-
-// draw() function is called repeatedly, it's the main animation loop
-function draw() {
-    background(220);    
-    // call a method on the instance
-    myInstance.myMethod();
-
-    // Put drawings here
-    var centerHorz = canvasContainer.width() / 2 - 125;
-    var centerVert = canvasContainer.height() / 2 - 125;
-    fill(234, 31, 81);
-    noStroke();
-    rect(centerHorz, centerVert, 250, 250);
-    fill(255);
-    textStyle(BOLD);
-    textSize(140);
-    text("p5*", centerHorz + 10, centerVert + 200);
-}
-
-// mousePressed() function is called once after every time a mouse button is pressed
 function mousePressed() {
-    // code to run when mouse is pressed
+  start1 = 30;
+  start2 = 120;
+  var grammar = tracery.createGrammar(grammarSource);
+  grammar.addModifiers(tracery.baseEngModifiers);
+  //var output = grammar.flatten("#origin#");
+  let origin = random(['origin1', 'origin2','origin3','origin4']);
+      // Generate text using the selected origin
+  output = grammar.flatten('#' + origin + '#');
+
+  background(255);
+  textFont(font, 50);
+  let shadowColor = color(random()*100, random()*100, random()*100, 255); // transparency
+  let offsetX = 2;
+  let offsetY = 2;
+  let blurRadius = 5;
+  textShadow(shadowColor, offsetX-90, offsetY-90, blurRadius);
+  //stroke(random()*100,random()*100,random()*100,50); //  outline
+  //strokeWeight(1); // Set outline thickness
+  //noFill(); // Do not fill the text
+  textFont(font, 50);
+
+
+
+  text(output, 30, 30, width-40, height-40);
+  text(output, 120, 120, width-40, height-40);
+
+  
+
+}
+
+var grammarSource = {
+  "origin1": "A #singlenoun# of #noun# and #noun#",
+  "origin2": "#name#'s #singlenoun#",
+  "origin3": "#noun# of #noun#",
+  "origin4": "#number# of #noun#",
+  "noun": ["Darkness", "Misery", "Flames", "Fiddlesticks",
+    "Crystals", "Hell", "Light", "Pain", "Kingdoms", "Crows", "Ravens","Queens","Kings","Empires","Stars","Ice"],
+  "singlenoun": ["Darkness", "Misery", "Flame", "Fiddlestick",
+    "Crystal", "Hell", "Light", "Pain", "Kingdom", "Crow", "Raven","Empire","Star","Sun","Moon","Ice"],
+  "name": ["Ruby", "Scarlett", "Ebony Dark'ness Way", "Parakeet", "Foxglove", "Shields", "Shrike", "Jasmine","Cassandra","Chapa","Dracula","Aria"],
+  "number": [
+        "Two",
+        "Six",
+        "Twelve"
+  ]
+};
+
+function textShadow(color, offsetX, offsetY, blurRadius) {
+  // Apply text shadow effect
+  for (let i = 0; i < blurRadius; i++) {
+    fill(color.levels[0], color.levels[1], color.levels[2], color.levels[3] / blurRadius);
+    text(output, width / 4 + offsetX, height / 4 + offsetY);
+    text(output, width / 4 + offsetX+90, height / 4 + offsetY+90);
+
+  }
 }
