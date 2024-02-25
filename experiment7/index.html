@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- This title is used for tabs and bookmarks -->
+	<title>Experiment X - Subject/Topic</title>
+
+	<!-- Use UTF character set, a good idea with any webpage -->
+	<meta charset="UTF-8" />
+	<!-- Set viewport so page remains consistently scaled w narrow devices -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- Include CSS file, including a site-wide CSS and for this particular page -->
+	<link rel="stylesheet" type="text/css" href="../css/site.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<!-- Load jQuery library -->
+	<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+	<!-- Load p5.js library -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"></script>
+
+	<!-- Link to javascript files - DEFER waits until all elements are rendered -->
+	<!-- Use me for a JavaScript OOP Project -->
+	<script type="text/javascript" src="./js/project.js" DEFER></script>
+	<!-- Use me for a p5.js project -->
+	<script type="text/javascript" src="./js/sketch.js" DEFER></script>
+	<script src=" https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</head>
+<body>
+	<!-- Style this page by changing the CSS in ../css/site.css or css/experiment.css -->
+	<main id="content">
+		<section>
+			<h1>Experiment 7: Data Visualization & Networks
+			</h1>
+			<div class="minor-section">
+				<h2>Imitate</h2>
+				<p>I was a bit stumped on how I wanted to approach this assignment. I’m really into cuckoos and other brood parasites and decided I wanted to do something with data regarding them, so I went online and downloaded a csv file of cuckoo egg data. For context, cuckoos lay their eggs in a host bird’s nest and make them raise their children. This practice is known as brood parasitism.</p>
+				<p>After looking into how tables worked in p5js, I successfully got my egg data displaying.	</p>
+			</div>
+
+			<div class="minor-section">
+				<h2>Integrate</h2>
+				<p>I wasn’t super satisfied with the text display, so I used Plotly to create a scatterplot of data. I had to use ChatGPT to help me learn Plotly, as there isn’t much documentation on it for p5js.</p>
+				<p>I made a great visualization of cuckoo egg breath and length in general, but it doesn’t tell us why an egg might be a certain length or breadth. Since we have information on the host nests of the eggs, I decided to color code each point by host species.</p>
+				<p>I found this information really interesting and exciting! There seems to be a noticeable correlation between host species of the cuckoo and the size of the egg. Wrens seem to host smaller cuckoo eggs, while tree pipits seem to host larger cuckoos. This is really interesting because the actual species of cuckoo is all the same. It’s hard to make definitive theories without more data points, but my amateur guess would be that cuckoo mothers who lay smaller eggs tend to lay them in nests with birds that also have smaller eggs and vice versa as to avoid having their eggs rejected.</p>
+			</div>
+
+			<div class="minor-section">
+				<h2>Innovate</h2>
+				<p>For clarity’s sake, I added a key. I then updated the key and added a name, as I couldn’t find one in the graph despite adding one.</p>
+			</div>
+
+			<div class="minor-section">
+				<h2>Reflection</h2>
+				<p>Each person that worked on the code should reflect on the process, the difficulties, and the successes of the experiment. Here's where you can put your reflections.</p>
+				<ul>
+					<li>I realized as I began this experiment that I really just have very little experience in visualizing data, which is a shame, because I feel like it would be an extremely useful skill to have. Being able to visualize data makes it easy to learn and draw conclusions, and being able to visualize data creatively engages people and makes them more likely to listen to you.
+					</li>
+					<li>	I decided pretty early on that I wanted to use data from a csv file and just find a way to plot it in a way that made sense. It’s not very creative, but I couldn’t think of a particularly creative way to accomplish this. I actually ended up having a lot of fun and putting effort into learning how to plot the graph because I was super interested in how the data would look visually. I really love cuckoos so I’m glad I was able to find a dataset that catered to my interests and made me more likely to stay engaged with the assignment.
+					</li>
+					<li>	In terms of creativity, I know I didn’t make anything super mind blowing, but this quarter is making me realize that I enjoy menial and practical programming tasks more than I do creative programming tasks despite me being an artist before a programmer. I think this is important information for me to keep in mind when graduating and looking into careers.  
+					</li>
+				</ul>
+			</div>
+
+			<div class="minor-section">
+				<h2>Results</h2>
+				<div id="canvas-container">
+					<!-- canvas will be added here -->
+				</div>
+			</div>
+		</section>
+		<nav id="links">
+			<!-- Put links to other pages (including the homepage) here. -->
+		</nav>
+	</main>
+</body>
+</html>
