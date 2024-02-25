@@ -37,7 +37,7 @@ function setup() {
   var div = createDiv(" ");
   div.id("myPlot");
   div.position(0,0);
-  div.size(windowWidth,windowHeight-200);
+  div.size(800,800-200);
 
   
   x = table.getColumn(3);
