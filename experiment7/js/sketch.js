@@ -20,7 +20,7 @@ function preload() {
 //wren,pied wagtail, robin, sparrow,tree pipit,meadow pipit
 
 function setup() { 
-  createCanvas(500, 500);
+  createCanvas(900, 900);
   
   background(255);
   
@@ -37,7 +37,7 @@ function setup() {
   var div = createDiv(" ");
   div.id("myPlot");
   div.position(0,0);
-  div.size(500,500-200);
+  div.size(900,900-200);
 
   
   x = table.getColumn(3);
